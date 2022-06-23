@@ -13,10 +13,11 @@
 	<h3>String 데이터 출력</h3>
 	<%
 		session.setAttribute("sessionData","hi");
-		request.setAttribute("requestData", "hello");
+		request.setAttribute("requestData", "hello!!!	");
 	%>
 	${sessionScope.sessionData } <br/>
-	${requestScope.requestData }
+	${requestData }
+	
 	
 	<h3>DTO 데이터 출력</h3>
 	<%

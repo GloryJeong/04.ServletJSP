@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.EmpDAO;
 
@@ -33,17 +34,32 @@ public class EMPController extends HttpServlet {
 		 * 만약에 SQLException이 발생한다면? -> failView.jsp로 이동 (?)
 		 * 
 		*/
-		
+		HttpSession session = request.getSession();
+//		try {
+//			String ename = EmpDAO.getName(empno);
+//			if(ename != null) {
+//				System.out.println(ename);
+//				session.setAttribute("ename",ename);
+//			}else {
+//				System.out.println("이름이 없음");
+//				session.setAttribute("ename","이름이 없음");
+//			}
+//			request.getRequestDispatcher("view.jsp").forward(request, response);
+//		} catch (SQLException e) {
+//			response.sendRedirect("failView.jsp");
+//		}
 		try {
 			String ename = EmpDAO.getName(empno);
 			if(ename != null) {
 				System.out.println(ename);
+				request.setAttribute("ename",ename);
 			}else {
 				System.out.println("이름이 없음");
+				request.setAttribute("ename","이름이 없음");
 			}
+			request.getRequestDispatcher("view.jsp").forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response.sendRedirect("failView.jsp");
 		}
 		
 		

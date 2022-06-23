@@ -25,7 +25,6 @@ public class IdCheck extends HttpServlet {
 		String id = request.getParameter("uname");
 		if("busan".equals(id)) {
 			// vaild 매핑 되어 있는 servlet 화면 이동
-			
 			//
 	        request.getRequestDispatcher("valid").forward(request, response);
 			

@@ -27,7 +27,7 @@
     <Manager pathname="" />
     -->
     
-  <!--   <Resource
+     <Resource
     	name="jdbc/mysql"
     	driverClassName="com.mysql.cj.jdbc.Driver"
     	type="javax.sql.DataSource"
@@ -38,6 +38,6 @@
     	maxActive="30"
     	maxIdle="3"
     	maxWait="3000"
-    ></Resource> -->
+    ></Resource> 
     
 </Context>
