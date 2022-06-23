@@ -1,0 +1,46 @@
+step04_JSP
+
+[학습]
+1. JSP Java Server Pages
+	- 자바의 데이터 자체를 브라우저 화면에 출력 할 수 있도록
+	
+	- *.jsp
+	- WebContent 하단에 위치
+	- jsp를 최초로 호출 -> Web Server가 Servlet 으로 변환 -> 컴파일 -> 서버 배치 -> 서비스
+	- 내장 객체 존재 : 요청, 세션, 출력, 응답, ...
+	- 정해진 태그로 개발
+
+2. Tags
+	*가급적, 자바 코드는 최소화
+	- jsp scripting
+		-page 지시자 : jsp 선언구
+			<%@ page%>
+				- 외부 라이브러리 import, MIMETYPE, ...
+				
+				
+		- <%! %>
+			- 멤버 변수, 메소드 등을 구현할 때 사용하는 태그
+			
+		-<%-- --%>
+			- jsp 주석
+		
+		
+		- <%= %>
+			-브라우저에 출력
+			
+		- <% %> : Scriplet
+			- 순수 자바 코드 개발
+		
+		-jsp action tag
+		- EL : Expression Language
+			- 사용 빈도가 굉장히 높음
+			- ${출력 로직}
+			- 연산
+			- * 자바 데이터 출력 가능
+				- ** 요청, 세션 객체 저장된 데이터 출력
+			
+			- ex) ${cookie.개발자가 지정한 key.value}
+				  ${param.쿼리스트링key}
+				  
+				  
+			
