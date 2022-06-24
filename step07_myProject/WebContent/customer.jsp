@@ -10,11 +10,12 @@
 <html>
 <head>
 <meta charset="EUC-KR">
+
 <title>customer</title>
 </head>
 <body>
 	<div style="background-color : lightblue;
-	 			text-align : center">
+	 			text-align : center"> 
 	<h1> customer page</h1>
 	</div>
 	<br/>
@@ -35,6 +36,9 @@
         </td>
         <td bgcolor="#336699">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">전 화 번 호 </span></b></font></p>
+        </td>
+        <td bgcolor="#336699">
+            <p align="center"><font color="white"><b><span style="font-size:9pt;"> 옵 션 </span></b></font></p>
         </td>
     </tr>
     
@@ -65,9 +69,15 @@
 		            <p align="center"><span style="font-size:9pt;">
 		             ${data.phoneNumber}</span></p>
 		        </td>
+		        <td bgcolor="">
+		            <p align="center"><button onclick="location.href='customer?command=delete&customerId=${data.customerId}'">삭제하기</button></p>
+		        </td>
 		    </tr>
 	</c:forEach>
 	</table>
+	<div align=right>
+<span style="font-size:9pt;">&lt;<a href="customerAdd.html">고객 추가</a>&gt;</span></div>
+	
 
 </body>
 </html>

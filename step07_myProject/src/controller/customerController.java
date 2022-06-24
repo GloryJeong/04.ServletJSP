@@ -27,14 +27,18 @@ public class customerController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		System.out.println(request.getParameter("command"));
 		
 		String command = null;
 		command =request.getParameter("command");
 		if(command == null) {
-			System.out.println("1");
 			response.sendRedirect("index.jsp");
 		}else if("list".equals(command)) {
 			customerList(request,response);
+		}else if("delete".equals(command)) {
+			customerDelete(request,response);
+		}else if("add".equals(command)) {
+			customerAdd(request,response);
 		}
 		
 		
@@ -57,6 +61,24 @@ public class customerController extends HttpServlet {
 //		}
 		
 	}
+	private void customerAdd(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException  {
+		
+	}
+
+	private void customerDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		String customerId =request.getParameter("customerId");
+		String command = request.getParameter("command");
+		
+		try {
+			CustomerDAO.deleteCustomer(customerId);
+		}catch(SQLException e){
+			e.printStackTrace();
+			response.sendRedirect("failView.jsp");
+		}
+		response.sendRedirect("customer");
+		
+	}
+
 	private void customerList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<CustomerDTO> customerList = null;
 		try {
