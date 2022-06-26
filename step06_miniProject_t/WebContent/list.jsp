@@ -26,11 +26,11 @@
     </tr>
 
      <c:if test="${empty list || fn:length(list) == 0}">
-     	<%
+     	<%-- <%
      		if(request.getRequestURI().contains("list.jsp")){
      			response.sendRedirect("guestbook.do");
      		}
-     	%>   	
+     	%>    --%>	
 		<tr>
 	        <td colspan="5">
 	            <p align="center"><b><span style="font-size:9pt;">등록된 방명록이 없습니다.</span></b></p>

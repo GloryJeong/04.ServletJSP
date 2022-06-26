@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +17,22 @@ import guestbook.model.GuestBookDAO;
 
  
  public class GuestBookServlet extends HttpServlet {
+	 // config 값 추출 방법1
+//	String env;
+//	public void init(ServletConfig config) {
+//		System.out.println(config.getInitParameter("id"));
+//		env = config.getInitParameter("charset");
+//	}
+	 
+	 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
+		// config 값 추출 방법2
+//		String env = this.getInitParameter("charset");
+//		request.setCharacterEncoding(env);
+//		
+		// Servlet Context
+		ServletContext sc = this.getServletContext();
+		System.out.println(sc.getInitParameter("contextConfig"));
 		
 		String command=request.getParameter("command");
 		
