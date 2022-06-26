@@ -11,8 +11,8 @@
 	 			text-align : center">
 	<h1> reservation management</h1>
 	</div>
-	<a href = "customer?command=list">고객관리</a><br/>
-	<a href = "room.jsp">객실 관리</a><br/>
-	<a href = "reservation.jsp">예약 관리</a><br/>	
+	<a href = "customer">고객관리</a><br/>
+	<a href = "room">객실 관리</a><br/>
+	<a href = "reservation">예약 관리</a><br/>	
 </body>
 </html>

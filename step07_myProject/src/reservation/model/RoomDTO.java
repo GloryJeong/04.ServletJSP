@@ -5,14 +5,14 @@ public class RoomDTO {
 	
 
 	private int roomId; // 방 번호
-	private int max_Capacity; //최대수용인원
+	private int maxCapacity; //최대수용인원
 	private String price; //가격
 	private String region; // 지역
 	
-	public RoomDTO(int roomId, int max_Capacity, String price, String region) {
+	public RoomDTO(int roomId, int maxCapacity, String price, String region) {
 		super();
 		this.roomId = roomId;
-		this.max_Capacity = max_Capacity;
+		this.maxCapacity = maxCapacity;
 		this.price = price;
 		this.region = region;
 		
@@ -26,12 +26,12 @@ public class RoomDTO {
 		this.roomId = roomId;
 	}
 
-	public int getMax_Capacity() {
-		return max_Capacity;
+	public int getMaxCapacity() {
+		return maxCapacity;
 	}
 
-	public void setMax_Capacity(int max_Capacity) {
-		this.max_Capacity = max_Capacity;
+	public void setMaxCapacity(int maxCapacity) {
+		this.maxCapacity = maxCapacity;
 	}
 
 	public String getPrice() {
@@ -53,13 +53,11 @@ public class RoomDTO {
 
 	@Override
 	public String toString() {
-//		return "RoomDTO [roomId=" + roomId + ", max_Capacity=" + max_Capacity + ", price=" + price + ", region="
-//				+ region + ", roomStatus=" + roomStatus + "]";
 		StringBuilder builder = new StringBuilder();
 		builder.append("[방 번호 : ");
 		builder.append(roomId);
 		builder.append(", 최대 수용인원 : ");
-		builder.append(max_Capacity);
+		builder.append(maxCapacity);
 		builder.append(", 가격 : ");
 		builder.append(price);
 		builder.append(", 지역 : ");

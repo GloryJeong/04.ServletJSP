@@ -4,22 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <SCRIPT language=javascript>
 function checkValid() {
-    var f = window.document.writeForm;
+    var f = window.document.addForm;
 		
-	if ( f.author.value == "") {
-	    alert( "작성자를 입력해 주세요." );
+	if ( f.ctmId.value == "") {
+	    alert( "고객 아이디를 입력해 주세요." );
 		return false;
     }
-	if ( f.email.value == "" ) {
-		alert( "전자메일을 입력해 주세요." );
+	if ( f.headCount.value == "" ) {
+		alert( "인원을 입력해 주세요." );
 		return false;
 	}
-	if ( f.title.value == "" ) {
-		alert( "제목을 입력해 주세요." );
+	if ( f.name.value == "" ) {
+		alert( "이름을 입력해 주세요." );
 		return false;
 	}
-	if ( f.password.value == "" ) {
-        alert( "비밀번호를 입력해 주세요" );
+	if ( f.pNumber.value == "" ) {
+        alert( "전화번호를 입력해 주세요" );
         return false;
     }
     return true;
@@ -29,12 +29,11 @@ function checkValid() {
 </HEAD>
 <BODY>
 
-<form name="addForm" method="post" action="customer" onSubmit='return checkValid()'>
+<form name="addForm" method="post" action="../customer?command=add" onSubmit='return checkValid()'>
 
 <input type="hidden" name="command" value="add">
 
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1">
-
     <tr>
         <td width="1220" height="20" colspan="2" bgcolor="#336699">
             <p align="center"><font color="white" size="3"><b>고객 추가</b></font></p>
@@ -45,7 +44,7 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">고객 Id</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="ctmId" size="30"></span></b></td>
+		<input type=text name="ctmId" size="30" maxlength = 5></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
@@ -59,16 +58,15 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">이름</span></b></p>
         </td>
         <td width="450" height="20" ><b><span style="font-size:9pt;">
-		<input type=text name="name" size="50"></span></b></td>
+		<input type=text name="name" size="50" maxlength=5></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">
             <p align="right"><b><span style="font-size:9pt;">전화번호</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<textarea name="pNumber" cols="50" rows="10"></textarea></span></b></td>
+        <input type=text name="pNumber" size="50" maxlength=15></span></b></td>
     </tr>
-    
     <tr>
         <td width="150" height="20">
             <p align="right"><b><span style="font-size:9pt;">&nbsp;</span></b></p>
@@ -81,7 +79,7 @@ function checkValid() {
 </form>
 
 <hr>
-<div align=right><span style="font-size:9pt;">&lt;<a href="customer?command=list">리스트로 돌아가기</a>&gt;</span></div>
+<div align=right><span style="font-size:9pt;">&lt;<a href="../customer?command=list">리스트로 돌아가기</a>&gt;</span></div>
 
 </BODY>
 </HTML>

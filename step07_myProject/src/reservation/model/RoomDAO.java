@@ -62,7 +62,7 @@ public class RoomDAO {
 			con= DBUtil.getConnection();
 			pstmt = con.prepareStatement("insert into room(room_id,max_capacity,price,region) values(?, ?, ?, ?)");
 			pstmt.setInt(1, newRoom.getRoomId());
-			pstmt.setInt(2, newRoom.getMax_Capacity());
+			pstmt.setInt(2, newRoom.getMaxCapacity());
 			pstmt.setString(3, newRoom.getPrice());
 			pstmt.setString(4, newRoom.getRegion());
 			int result = pstmt.executeUpdate();

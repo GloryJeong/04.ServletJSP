@@ -18,10 +18,12 @@
 	 			text-align : center"> 
 	<h1> customer page</h1>
 	</div>
+	<form align = "right" action="customer?command=select" method="get">
+		<input name="command" value="select" type="hidden"/>
+		<input name="selectId" placeholder="id로 검색"/> 
+		<button type="submit">검 색</button>
+	</form>
 	<br/>
-	<%-- <c:forEach var="myVar" items="${requestScope.customerList}" varStatus="LoopStatus">
-				<div>${myVar}</div>
-	</c:forEach> --%>
 	<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
 	<tr>
         <td bgcolor="#336699">
@@ -45,7 +47,7 @@
  	<c:if test="${empty customerList || fn:length(customerList) == 0}">
 		<tr>
 	        <td colspan="5">
-	            <p align="center"><b><span style="font-size:9pt;">등록된 방명록이 없습니다.</span></b></p>
+	            <p align="center"><b><span style="font-size:9pt;">등록된 고객 정보가 없습니다.</span></b></p>
 	        </td>
 	    </tr>
 	</c:if>
@@ -70,13 +72,23 @@
 		             ${data.phoneNumber}</span></p>
 		        </td>
 		        <td bgcolor="">
-		            <p align="center"><button onclick="location.href='customer?command=delete&customerId=${data.customerId}'">삭제하기</button></p>
+		            <p align="center">
+		            <button onclick="location.href='customer?command=delete&customerId=${data.customerId}'">삭 제</button>
+		            <button onclick="location.href='customer/customerUpdate.jsp?customerId=${data.customerId}'">수 정</button>
+		            </p>
+		            
 		        </td>
 		    </tr>
 	</c:forEach>
 	</table>
 	<div align=right>
-<span style="font-size:9pt;">&lt;<a href="customerAdd.html">고객 추가</a>&gt;</span></div>
+<span style="font-size:9pt;">&lt;<a href="index.jsp">메인 메뉴</a>&gt;</span>
+<span style="font-size:9pt;">&lt;<a href="/step07_myProject/customer/customerAdd.html">고객 추가</a>&gt;</span>
+<c:if test="${param.command == 'select' }">
+	<span style="font-size:9pt;">&lt;<a href="customer">전체 리스트 보기</a>&gt;</span>
+</c:if>
+</div>
+
 	
 
 </body>
